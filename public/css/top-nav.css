@@ -43,6 +43,10 @@
     color: #2C2E33;
 }
 
+.top-nav__list a.active {
+    color: #2C2E33;
+}
+
 .top-nav button {
     width: 115px;
     height: 30px;
