@@ -3,7 +3,7 @@
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 if($page === 'home'){
-    require_once __DIR__ . '/../app/view/home.php';
+    require_once __DIR__ . '/../app/view/pages/index.php';
 } else {
-    require_once __DIR__ . '/../app/view/404.php';
+    require_once __DIR__ . '/../app/view/pages/404.php';
 }
