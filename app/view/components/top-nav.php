@@ -1,4 +1,4 @@
-<?php $currentPage = $_GET['page'] ?? ''; ?>
+<?php $currentPage = $_GET['page'] ?? 'home'; ?>
 
 <nav class="top-nav">
     <p class="logo__title">AnoBoard</p>
