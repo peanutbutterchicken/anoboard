@@ -21,7 +21,7 @@
 .logo__title {
     font-size: 24px;
     font-weight:600;
-    user-select: none;
+    user-select: none;   
     cursor: pointer;
 } 
 .top-nav__list {
