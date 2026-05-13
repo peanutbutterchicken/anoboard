@@ -21,6 +21,8 @@
 .logo__title {
     font-size: 24px;
     font-weight:600;
+    user-select: none;
+    cursor: pointer;
 } 
 .top-nav__list {
     display: flex;
@@ -50,7 +52,7 @@
 .top-nav button {
     width: 115px;
     height: 30px;
-    background-color: black;
+    background-color: #2C2E33 ;
     color: white;
     border-radius: 4px;
     border-style: none;

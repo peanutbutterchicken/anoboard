@@ -1,4 +1,7 @@
 <?php require_once __DIR__ . '/../components/header.php'; ?>
+<div class="floating-button">
+    <span class="material-symbols-outlined icon-add">add</span>
+</div>
 <div class="container__banner">
     <h1>Speak Your Truth, Anonymously.</h1>
     <p>
@@ -7,12 +10,12 @@
         accounts, no judgement,
         just expression.
     </p>
-    <button>Go to the Wall ->   </button>
+    <button>Go to the Wall <span class="material-symbols-outlined icon-forward_arrow">arrow_forward</span> </button>
 </div>
 <!-- image dito -->
 <div class="info__about">
     <div class="box anonymity">
-        <span class="material-symbols-outlined" aria-hidden=true >lock</span>
+        <span class="material-symbols-outlined icon-lock" aria-hidden=true >lock</span>
         <h1>Total Anonymity</h1>
         <p>
             We dont track your IP, your location, or your identity. Your notes are floating whispers
@@ -20,6 +23,7 @@
         </p>
     </div>
     <div class="box safespace">
+        <span class="material-symbols-outlined icon-favorite">favorite</span>
         <img src="" alt="">
         <h1>Safe Space</h1>
         <p>
@@ -27,7 +31,7 @@
         </p>
     </div>
     <div class="box tactileui">
-        <img src="" alt="">
+    <span class="material-symbols-outlined">stars_2</span>
         <h1>Tactile UI</h1>
         <p>
             Digital interactions that feel physical. Drag, pin, and curl your notes.

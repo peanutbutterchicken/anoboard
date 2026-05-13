@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+
+    margin: 32px 32px;
+    color: #2C2E3399;
+}
+
+.container__links {
+
+}
+.container__links a{
+    margin: 0 14px;
+    text-decoration: none;
+    color: #2C2E3399;
+}
+.container__links a:hover{
+    color: black;
+    transition: 0.5s;
+}

@@ -12,11 +12,14 @@
 }
 .container__banner h1 {
     font-size: 48px;
+    color: #2C2E33;
 }
 .container__banner p {
     font-size: 18px;
     text-align: center;
     margin: 24px 110px;
+
+    color: #2C2E33;
 }
 .container__banner button {
     font-size: 32px;
@@ -42,6 +45,7 @@
 .info__about h1 {
     font-size: 32px;
     font-weight: 600;
+    margin: 10px 0;
 }
 .info__about p {
     font-size: 14px;
@@ -55,10 +59,15 @@
 }
 
 .material-symbols-outlined {
-    font-variation-settings:
-        'FILL', 1
-    ;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: #2C2E33;
 }
+
+
 /* why wont the lock icon get filled??? sakit na ng leeg ko */
 .anonymity {
     width: 863px; 
@@ -86,7 +95,15 @@
     width: 420px;
     height: 256px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     background-color: #2C2E330D ;
+}
+.tactileui p {
+    text-align: center;
 }
 
 .jointheconversation {
@@ -95,8 +112,40 @@
 
     background-color: #FFFFFF66;
 }
+.jointheconversation p {
+    width: 448px;
+}
 
 /* temporary bg-color */
 body {
-    background-color: #A7B79B;
+    background: hsla(160, 47%, 83%, 1);
+    background: linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#BFE8DA", endColorstr="#0A3431", GradientType=1 );
+}
+
+/* floating button */
+.floating-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+
+    width: 64px;
+    height: 64px;
+    background-color: #2C2E33;
+    border-radius: 12px;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+.floating-button .icon-add {
+    color: #FFFFFF;
+    font-size: 38px;
 }
