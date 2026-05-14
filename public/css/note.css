@@ -1,0 +1,57 @@
+:root {
+    --note-color-yellow: #FEF9C3;
+}
+
+.container__notes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin: 48px;
+
+    min-height: 750px;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    width: 316.25px;
+    height: 254px;
+    background-color: var(--note-color-yellow);
+    padding: 20px;
+}
+.note .text{
+    font-style: italic;
+    font-size: 18px;
+
+    color: #2C2E33CC;
+}
+
+.note .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: auto;
+
+    font-size: 12px;
+    color: #2C2E334D; 
+
+    user-select: none;
+}
+
+.note .stats .icon-heart-like{
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+
+  cursor: pointer;
+}
+.note .stats .icon-heart-like:hover {
+    font-variation-settings:
+    'FILL' 1;
+    color: red;
+}
+

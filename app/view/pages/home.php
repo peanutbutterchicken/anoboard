@@ -10,6 +10,7 @@
         accounts, no judgement,
         just expression.
     </p>
+    <!-- TODO: make this button elem. into anchor tag to be seo friendly and style to look like button-->
     <button>Go to the Wall <span class="material-symbols-outlined icon-forward_arrow">arrow_forward</span> </button>
 </div>
 <!-- image dito -->
@@ -31,7 +32,7 @@
         </p>
     </div>
     <div class="box tactileui">
-    <span class="material-symbols-outlined">stars_2</span>
+    <span class="material-symbols-outlined icon-stars2">stars_2</span>
         <h1>Tactile UI</h1>
         <p>
             Digital interactions that feel physical. Drag, pin, and curl your notes.

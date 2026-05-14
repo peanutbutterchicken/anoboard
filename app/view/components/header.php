@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="./css/top-nav.css">
         <link rel="stylesheet" href="./css/footer.css">
         <link rel="stylesheet" href="./css/home.css">
+        <link rel="stylesheet" href="./css/note.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
