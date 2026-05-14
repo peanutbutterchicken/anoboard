@@ -12,6 +12,7 @@ if($page === 'home'){
     require_once __DIR__ . '/../app/view/pages/home.php';
 
 } else if($page === 'board'){
+    $notes = $noteModel->getAllNotes();
     require_once __DIR__ . '/../app/view/pages/board.php';
 
 } else if($page === 'rules'){

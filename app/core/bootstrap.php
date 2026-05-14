@@ -4,4 +4,4 @@ require_once __DIR__ . '/../model/note.php';
 
 $database = new Database();
 $pdo = $database->getConnection();
-$notes = new Note($pdo); 
+$noteModel = new Note($pdo);
