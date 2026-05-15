@@ -6,10 +6,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 
     margin: 48px;
-
+    gap: 20px;
     min-height: 750px;
 }
 
@@ -28,7 +27,7 @@
     color: #2C2E33CC;
 }
 
-.note .stats {
+.note .footer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,18 +39,6 @@
     user-select: none;
 }
 
-.note .stats .icon-heart-like{
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-
-  cursor: pointer;
+.note .footer .anon-name {
+    font-weight: bold;
 }
-.note .stats .icon-heart-like:hover {
-    font-variation-settings:
-    'FILL' 1;
-    color: red;
-}
-

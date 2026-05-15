@@ -27,16 +27,25 @@ function getTimeElapsed(createdAt){
 function renderNote(note){
     const timeElapsed = getTimeElapsed(note.created_at); 
     const name = nameGenerate();
-    const noteHtml =
+    const noteHTML =
     `<div class="note">
         <p class="text">"${note.text}"
-        <div class="stats">
-            <p class="time-elapsed">a/${name}</p>
-            <span class="material-symbols-outlined icon-heart-like">favorite</span>
+        <div class="footer">
+            <p class="time-elapsed">${timeElapsed}</p>
+            <p class="anon-name">a/${name}</p>
         </div>
     </div>`;
-    return noteHtml;
+    return noteHTML;
 }
+
+function renderNoteForm(){
+    const formHTML =
+    `<div class="container__form-note">
+        
+    </div>`;
+}
+
+// TODO: create form for note creation. check figma design
 
 function render(){
     const containerNotes = document.querySelector('.container__notes');
