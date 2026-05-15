@@ -1,3 +1,4 @@
+<?php $isBoardPage = (isset($_GET['page']) && $_GET['page'] === 'board') ? true : false; ?>
 <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
@@ -8,13 +9,14 @@
         <link rel="stylesheet" href="./css/home.css">
         <link rel="stylesheet" href="./css/note.css">
 
-        <script>
-            <?php
-                if(isset($_GET['page']) && $_GET['page'] === 'board') echo "windows.INITIAL_STATE = json_encode($notes);"
-            ?>
-        </script>
-
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    </head>
+        <?php
+            echo $isBoardPage ?
+            "<script src='./../app/controller/noteController.js' defer></script>"
+            : ''; 
+        ?>
+        <script>
+            window.INITIAL_STATE = <?php echo ($isBoardPage) ? json_encode($notes) : '{}' ?>
+        </script>
     <body>
         <?php require_once './../app/view/components/top-nav.php';?>
