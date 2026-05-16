@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../components/header.php'; ?>
-<div class="floating-button">
+<a href="index.php?page=board&action=showModal" class="floating-button">
     <span class="material-symbols-outlined icon-add">add</span>
-</div>
+</a>
 <div class="container__banner">
     <h1>Speak Your Truth, Anonymously.</h1>
     <p>
@@ -10,8 +10,7 @@
         accounts, no judgement,
         just expression.
     </p>
-    <!-- TODO: make this button elem. into anchor tag to be seo friendly and style to look like button-->
-    <button>Go to the Wall <span class="material-symbols-outlined icon-forward_arrow">arrow_forward</span> </button>
+    <a href="index.php?page=board">Go to the Wall <span class="material-symbols-outlined icon-forward_arrow">arrow_forward</span> </a>
 </div>
 <!-- image dito -->
 <div class="info__about">

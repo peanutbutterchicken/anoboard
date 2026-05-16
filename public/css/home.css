@@ -21,7 +21,7 @@
 
     color: #2C2E33;
 }
-.container__banner button {
+.container__banner a {
     font-size: 32px;
     font-weight: 600;
     background-color: #FFF9C4;
@@ -29,9 +29,10 @@
     border-radius: 4px;
     padding: 12px;
     box-shadow: 0 4px #2C2E33;
-    border-color: #2C2E33;
-    border-style: 2px solid;
+    border: 2px solid #2C2E33;
     cursor: pointer;
+
+    text-decoration: none;
 }
 
 /* Website Information Section */
@@ -145,6 +146,8 @@
 
     user-select: none;
     cursor: pointer;
+
+    text-decoration: none;
 }
 
 .floating-button .icon-add {

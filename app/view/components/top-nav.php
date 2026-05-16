@@ -13,5 +13,5 @@
             <a href="index.php?page=rules" class="<?php echo ($currentPage === 'rules') ? 'active' : ''?>">Rules</a>
         </li>
     </ul>
-    <a href="index.php?page=board&showModal=1" class="button__post-note">Post note</a>
+    <a href="index.php?page=board&action=showModal" class="button__post-note">Post note</a>
 </nav>
