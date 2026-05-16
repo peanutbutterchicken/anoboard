@@ -2,8 +2,9 @@ footer {
     display: flex;
     flex-direction: row ;
     justify-content: space-between;
+    flex: 1;
 
-    margin: 32px 32px;
+    padding: 32px 32px;
     color: #2C2E3399;
 }
 

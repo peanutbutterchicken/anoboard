@@ -1,0 +1,136 @@
+/* general */
+body {
+    min-height: 100vh;
+    background-color: #C1E1C1;
+}
+
+/* forms */
+.asdadad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 9999;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 512px;
+    height: 575.69px;
+
+    border-radius: 5px;
+    padding: 30px;
+    position: fixed;
+
+    z-index: 9999;
+    background-color: white;
+}
+
+.form__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__header h1 {
+    font-size: 24px;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 600;
+}
+.form__button-close {
+    font-size: 18px;
+    color: #2C2E334D;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form__text-body {
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 240px;
+    resize: none;
+    border: none;
+    outline: none;
+    background: #FFF9C480;
+    color: #2C2E3380; 
+    border-radius: 5px;
+}
+
+.form__color-header {
+    font-size: 11px;
+    color: #2C2E3380; 
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form__color-selection {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.color {
+    height: 32px;
+    width: 32px;
+    border-radius: 10px;
+}
+
+.color.yellow {
+    background-color: yellow;
+}
+.color.blue{
+    background-color: blue;
+}
+.color.green{
+    background-color: green;
+}
+.color.red{
+    background-color: red;
+}
+.color.purple{
+    background-color: purple;
+}
+
+.form__footer {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: auto;
+}
+
+.form__footer button {
+    width: 448px;
+    height: 60px;
+    color: white;
+    background-color: #2C2E33;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.form__footer p {
+    margin-top: 30px;
+    font-size: 14px;
+    font-style: italic;
+    color: #2C2E3380; 
+     
+}

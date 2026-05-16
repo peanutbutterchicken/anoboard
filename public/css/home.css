@@ -126,12 +126,6 @@
     background: -webkit-linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#BFE8DA", endColorstr="#0A3431", GradientType=1 );
 } */
- body {
-    background-image: url("./../assets/images/bg-gradient_green.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
- }
 
 /* floating button */
 .floating-button {

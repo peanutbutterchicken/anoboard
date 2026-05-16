@@ -8,7 +8,7 @@ class Note{
     }
 
     public function getAllNotes(){
-        $stmt = $this->db->prepare('SELECT id, text, created_at FROM note');
+        $stmt = $this->db->prepare('SELECT id, text, created_at, anonymous_uname FROM note');
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -16,7 +16,7 @@ class Note{
     public function createNote($note){
         try {
             $this->db->beginTransaction();
-                $stmt = $this->db->prepare('INSERT INTO note (text, anonymousName) VALUES (:text, :anonymousName);');
+                $stmt = $this->db->prepare('INSERT INTO note (text, anonymous_uname) VALUES (:text, :anonymousName);');
                 $stmt->bindParam('text', $note['text']);
                 $stmt->bindParam('anonymousName', $note['anonymousName']);
                 $stmt->execute();

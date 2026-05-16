@@ -1,29 +1,29 @@
 const adjectives = [
-  "Goofy",
-  "Cringe",
-  "Sus",
-  "Musty",
-  "Greasy",
-  "Silly",
-  "Weird",
-  "Clumsy",
-  "Nosy",
-  "Lazy",
-  "Chaotic",
-  "Salty",
-  "Feral",
-  "Awkward",
-  "Dramatic",
-  "Cursed",
-  "Smelly",
-  "Corny",
-  "Unhinged",
-  "Broke",
-  "Sassy",
-  "Zesty",
-  "Sketchy",
-  "Derpy",
-  "Bonkers"
+    "Goofy",
+    "Cringe",
+    "Sus",
+    "Musty",
+    "Greasy",
+    "Silly",
+    "Weird",
+    "Clumsy",
+    "Nosy",
+    "Lazy",
+    "Chaotic",
+    "Salty",
+    "Feral",
+    "Awkward",
+    "Dramatic",
+    "Cursed",
+    "Smelly",
+    "Corny",
+    "Unhinged",
+    "Broke",
+    "Sassy",
+    "Zesty",
+    "Sketchy",
+    "Derpy",
+    "Bonkers"
 ];
 
 
@@ -50,9 +50,9 @@ const animals = [
     "Kambing",
     "Gecko",
     "Pusa",
-    "langgam",
-    "kabayo",
-    "baka"
+    "Langgam",
+    "Kabayo",
+    "Baka"
  ];
 
 export default function generateName(){

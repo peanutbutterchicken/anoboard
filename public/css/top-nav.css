@@ -49,7 +49,7 @@
     color: #2C2E33;
 }
 
-.top-nav button {
+.top-nav .button__post-note{
     width: 115px;
     height: 30px;
     background-color: #2C2E33 ;
@@ -57,8 +57,13 @@
     border-radius: 4px;
     border-style: none;
 
+    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
 
     cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
