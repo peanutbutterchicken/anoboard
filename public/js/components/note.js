@@ -1,16 +1,3 @@
-export default function renderNote(note){
-    const timeElapsed = getTimeElapsed(note.created_at); 
-    const noteHTML =
-    `<div class="note">
-        <p class="text">"${note.text}"
-        <div class="footer">
-            <p class="time-elapsed">${timeElapsed}</p>
-            <p class="anon-name">a/${note.anonymous_uname}</p>
-        </div>
-    </div>`;
-    return noteHTML;
-}
-
 function getTimeElapsed(timestamp){
     const timeDiff = Date.now() - new Date(timestamp).getTime();
     const seconds = timeDiff / 1000;
@@ -30,3 +17,27 @@ function getTimeElapsed(timestamp){
         return `${Math.round(seconds)} seconds ago`;
     }
 };
+
+export function getFormattedDateTime(){
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = (now.getMonth() + 1).padStart(2, '0');
+    const dd = (now.getDate()).padStart(2, '0');
+    const hh = (now.getHours()).padStart(2, '0');
+    const min = (now.getMinutes()).padStart(2, '0');
+    const ss = (now.getSeconds()).padStart(2, '0');
+
+    return `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+}
+
+export default function renderNote(note){
+    const noteHTML =
+    `<div class="note">
+        <p class="text">"${note.text}"
+        <div class="footer">
+            <p class="time-elapsed">${getTimeElapsed(note.created_at)}</p>
+            <p class="anon-name">a/${note.anonymous_uname}</p>
+        </div>
+    </div>`;
+    return noteHTML;
+}

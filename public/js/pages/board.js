@@ -1,4 +1,8 @@
 import renderNote from '../components/note.js';
+import generateRandomName from '../helper/helperNameGenerator.js';
+import getDateNow from '../helper/HelperGetFormmatedDateTime.js'
+import { postNoteService } from './../services/api.js';
+
 
 let state = {
     notes: window.INITIAL_STATE || []
@@ -65,3 +69,55 @@ function render(){
 }
 
 render();
+
+const formContainer = document.querySelector('.container');
+
+// color selection
+let selectedNoteColor;
+formContainer.addEventListener('click', function(event){
+    if(event.target.classList.contains('color')){
+        selectedNoteColor = getSelectedColor(event);
+    }
+});
+
+function getSelectedColor(event){
+    document.querySelectorAll('.color').forEach(color => color.classList.remove('selected'));
+    event.target.classList.add('selected');
+    const color = document.querySelector('.color.selected').getAttribute('data-color');
+    return color;
+}
+
+// form submission
+formContainer.addEventListener('click', async function(event){
+    event.preventDefault();
+
+    if(event.target.classList.contains('button__form-submit')){
+        await postNote(event);
+    }
+
+});
+
+async function postNote(event){
+    const textarea = document.getElementById('form__text-body');
+    const inputText = textarea.value.trim(' ');
+    const name = generateRandomName();
+
+    if(!inputText || !selectedNoteColor) return;
+
+    let data = {
+        text: inputText,
+        created_at: getDateNow(),
+        anonymous_uname: name,
+        note_color: selectedNoteColor
+    };
+    console.log(data.created_at);
+    
+    const success = await postNoteService(data);
+    if(!success){
+        alert('Failed to create note');
+        return;
+    }
+    state.notes.push(data);
+    render();
+    closeModal();
+}

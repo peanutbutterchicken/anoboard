@@ -8,7 +8,7 @@ class Note{
     }
 
     public function getAllNotes(){
-        $stmt = $this->db->prepare('SELECT id, text, created_at, anonymous_uname FROM note');
+        $stmt = $this->db->prepare('SELECT text, created_at, anonymous_uname, note_color FROM note');
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -16,9 +16,11 @@ class Note{
     public function createNote($note){
         try {
             $this->db->beginTransaction();
-                $stmt = $this->db->prepare('INSERT INTO note (text, anonymous_uname) VALUES (:text, :anonymousName);');
+                $stmt = $this->db->prepare('INSERT INTO note (text, created_at, anonymous_uname, note_color) VALUES (:text, :created_at, :anonymous_uname, :note_color);');
                 $stmt->bindParam('text', $note['text']);
-                $stmt->bindParam('anonymousName', $note['anonymousName']);
+                $stmt->bindParam('created_at', $note['created_at']);
+                $stmt->bindParam('anonymous_uname', $note['anonymous_uname']);
+                $stmt->bindParam('note_color', $note['note_color']);
                 $stmt->execute();
             $this->db->commit();
         } catch (PDOException $e){

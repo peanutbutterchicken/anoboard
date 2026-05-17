@@ -129,22 +129,27 @@
     height: 32px;
     width: 32px;
     border-radius: 10px;
+    
+    cursor: pointer;
+}
+.color.selected {
+    border: 2px solid rgb(30, 30, 43);
 }
 
 .color.yellow {
-    background-color: yellow;
+    background-color: #FEF9C3;
 }
 .color.blue{
-    background-color: blue;
+    background-color: #E1F5FE;
 }
 .color.green{
-    background-color: green;
+    background-color: #F1F8E9;
 }
 .color.red{
-    background-color: red;
+    background-color: #FCE4EC;
 }
 .color.purple{
-    background-color: purple;
+    background-color: #E8EAF6;
 }
 
 .form__footer {
@@ -165,6 +170,7 @@
     border: none;
     border-radius: 10px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .form__footer p {
