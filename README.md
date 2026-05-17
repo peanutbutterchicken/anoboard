@@ -44,6 +44,20 @@ AnoBoard is a simple digital corkboard for the unspoken. Where you can share you
 
 4. **Run the Application:**
     *   Open your web browser and navigate to http://localhost/anoboard (make sure the folder name matches your directory in htdocs).
+## Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the project.
+
+2. Create your feature branch (git checkout -b feature/AmazingFeature).
+
+3. Commit your changes (git commit -m 'Add some AmazingFeature').
+
+4. Push to the branch (git push origin feature/AmazingFeature).
+
+5. Open a Pull Request
+
 ## License
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE for more information.
 
