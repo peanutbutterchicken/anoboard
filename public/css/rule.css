@@ -1,0 +1,138 @@
+ .body__rules .wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__rules {
+    padding: 64px 0;
+    display: flex;
+    flex-direction: column;
+    width: 925px;
+}
+
+.container__rules h1 {
+    color: #2C2E33;
+    margin-bottom: 16px;
+    font-size: 48px;
+}
+.container__rules p {
+    width: 672px;
+}
+.container__rules  {
+    color: #2C2E33B3;
+}
+
+.container__rules-rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 64px;
+}
+
+.container__rules-rules .rule {
+    width: 288px;
+    height: 240px;
+    padding: 20px;
+    border: 1px solid #2C2E330D;
+}
+.container__rules-rules .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #2C2E33;
+}
+.container__rules-rules .rule h1 {
+    margin-top: 2.5px;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 600px;
+}
+.container__rules-rules .rule p {
+    font-size: 18px;
+    width: 246px;
+    color: #2C2E33B3;
+
+     margin-top: 16px;
+}
+.container__rules-rules .rule.nohatespeech {
+    background-color: #FFF9E5;
+}
+.container__rules-rules .rule.respectprivacy {
+    background-color: #E5F4FF;
+}
+.container__rules-rules .rule.bekind {
+    background-color: #E5F9F0;
+}
+.container__rules-rules .rule.nospam {
+    background-color: #FFF0F5;
+}
+.container__rules-rules .rule.staylegal {
+    background-color: #F3E5FF;
+}
+.container__rules-rules .rule.questions {
+    background-color: #FFFFFF;
+    border: 2px dashed #2C2E3399;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container__rules-rules .rule.questions .live_help {
+    color: #2C2E33B3;
+    font-size: 30px;
+}
+
+.container__philosophy {
+    display: flex;
+    flex-direction: column;
+    width: 768px;
+    margin-right: 160px;
+}
+
+.container__philosophy h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+.container__philosophy p{
+    margin-bottom: 24px;
+    color: #2C2E33B3;
+}
+
+.container__moderation {
+    display: flex;
+    flex-direction: row; 
+    width: 768px;
+    height: 162px;
+    margin-right: 160px;
+    padding: 32px;
+    border-radius: 8px;
+
+    background-color: #2C2E330D;
+    border: 1px solid #2C2E330D;
+}
+.container__moderation .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container__moderation h1 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #2C2E33B3;
+}
+.container__moderation p {
+    font-size: 14px;
+    color: #2C2E33B3;
+}
+.container__moderation img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px -3px #2C2E33B3;
+
+    margin-right: 24px;
+}

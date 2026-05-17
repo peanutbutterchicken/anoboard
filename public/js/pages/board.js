@@ -1,6 +1,7 @@
 import renderNote from '../components/note.js';
 import generateRandomName from '../helper/helperNameGenerator.js';
-import getDateNow from '../helper/HelperGetFormmatedDateTime.js'
+import getDateNow from '../helper/helperGetFormmatedDateTime.js'
+import getHexColor from '../helper/helperGetNoteColorHex.js'
 import { postNoteService } from './../services/api.js';
 
 
@@ -48,16 +49,6 @@ const formWrapper = document.querySelector('.overlay');
     });
 }
 
-function openModal(){
-   document.querySelector('.overlay').style.display = 'flex'
-   document.querySelector('.container').style.display = 'flex';
-}
-
-function closeModal(){
-   document.querySelector('.overlay').style.display = 'none'
-   document.querySelector('.container').style.display = 'none'
-}
-
 function render(){
     const containerNotes = document.querySelector('.container__notes');
     containerNotes.innerHTML = '';
@@ -71,30 +62,29 @@ function render(){
 render();
 
 const formContainer = document.querySelector('.container');
-
+const textArea = document.querySelector('.form__text-body');
 // color selection
 let selectedNoteColor;
 formContainer.addEventListener('click', function(event){
     if(event.target.classList.contains('color')){
-        selectedNoteColor = getSelectedColor(event);
+        selectedNoteColor = getStrSelectedColor(event);
+        textArea.style.backgroundColor = getHexColor(selectedNoteColor);
     }
 });
-
-function getSelectedColor(event){
-    document.querySelectorAll('.color').forEach(color => color.classList.remove('selected'));
-    event.target.classList.add('selected');
-    const color = document.querySelector('.color.selected').getAttribute('data-color');
-    return color;
-}
 
 // form submission
 formContainer.addEventListener('click', async function(event){
     event.preventDefault();
 
     if(event.target.classList.contains('button__form-submit')){
-        await postNote(event);
+        if(!textArea.value){
+            alert("Input text");
+        } else if(!selectedNoteColor){
+            alert("Please select a note color");
+        } else {
+            await postNote(event);
+        }
     }
-
 });
 
 async function postNote(event){
@@ -110,7 +100,6 @@ async function postNote(event){
         anonymous_uname: name,
         note_color: selectedNoteColor
     };
-    console.log(data.created_at);
     
     const success = await postNoteService(data);
     if(!success){
@@ -118,6 +107,26 @@ async function postNote(event){
         return;
     }
     state.notes.push(data);
+    // clear input values after successful post
+    textarea.value = '';
+    
     render();
     closeModal();
+}
+
+function openModal(){
+   document.querySelector('.overlay').style.display = 'flex'
+   document.querySelector('.container').style.display = 'flex';
+}
+
+function closeModal(){
+   document.querySelector('.overlay').style.display = 'none'
+   document.querySelector('.container').style.display = 'none'
+}
+
+function getStrSelectedColor(event){
+    document.querySelectorAll('.color').forEach(color => color.classList.remove('selected'));
+    event.target.classList.add('selected');
+    const color = document.querySelector('.color.selected').getAttribute('data-color');
+    return color;
 }

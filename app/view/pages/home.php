@@ -44,6 +44,11 @@
             Thousands of people have already pinned their thoughts. Your voice is the missing piece
             of our community mural. 
         </p>
+        <div class="form__color-selection">
+            <div class="color yellow" data-color="yellow"></div>
+            <div class="color red" data-color="red"></div>
+            <div class="color blue" data-color="blue" ></div>
+        </div>
     </div>
  </div>
 <?php require_once __DIR__ . '/../components/footer.php'; ?>

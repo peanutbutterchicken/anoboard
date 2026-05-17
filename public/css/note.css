@@ -4,9 +4,10 @@
 
 /* note */
 .container__notes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    place-items: center;
 
     margin: 48px;
     gap: 20px;
@@ -18,8 +19,10 @@
     flex-direction: column;
     width: 316.25px;
     height: 254px;
-    background-color: var(--note-color-yellow);
+
     padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 1px 1px 2px #2C2E334D;
 }
 .note .text{
     font-style: italic;

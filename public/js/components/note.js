@@ -1,3 +1,5 @@
+import getHexColor from '../helper/helperGetNoteColorHex.js';
+
 function getTimeElapsed(timestamp){
     const timeDiff = Date.now() - new Date(timestamp).getTime();
     const seconds = timeDiff / 1000;
@@ -18,21 +20,9 @@ function getTimeElapsed(timestamp){
     }
 };
 
-export function getFormattedDateTime(){
-    const now = new Date();
-    const yyyy = now.getFullYear();
-    const mm = (now.getMonth() + 1).padStart(2, '0');
-    const dd = (now.getDate()).padStart(2, '0');
-    const hh = (now.getHours()).padStart(2, '0');
-    const min = (now.getMinutes()).padStart(2, '0');
-    const ss = (now.getSeconds()).padStart(2, '0');
-
-    return `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
-}
-
 export default function renderNote(note){
     const noteHTML =
-    `<div class="note">
+    `<div class="note" style="background-color: ${getHexColor(note.note_color)};">
         <p class="text">"${note.text}"
         <div class="footer">
             <p class="time-elapsed">${getTimeElapsed(note.created_at)}</p>

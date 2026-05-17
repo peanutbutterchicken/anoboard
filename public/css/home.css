@@ -117,16 +117,8 @@
 }
 .jointheconversation p {
     width: 448px;
+    margin-bottom: 20px;
 }
-
-/* temporary bg-color */
-/* body {
-    background: hsla(160, 47%, 83%, 1);
-    background: linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(160, 47%, 83%, 1) 0%, hsla(176, 68%, 12%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#BFE8DA", endColorstr="#0A3431", GradientType=1 );
-} */
 
 /* floating button */
 .floating-button {

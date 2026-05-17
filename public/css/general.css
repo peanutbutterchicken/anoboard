@@ -1,5 +1,9 @@
 /* general */
 body {
     min-height: 100vh;
-    background-color: #C1E1C1;
+    background-color: #E5EEE4;
+}
+
+.body__board, .body__rules{
+    background-color: #FFFFFF;
 }
