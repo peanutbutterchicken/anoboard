@@ -3,8 +3,9 @@
 AnoBoard is a simple digital corkboard for the unspoken. Where you can share your secrets, dreams, or daily thoughts in a safe space where your identity remains yours alone. No accounts, no judgement, just expression.
 
 ## Screenshots
-
-
+![image](https://github.com/peanutbutterchicken/anoboard/.github/screenshots/homepage.png)
+![image](https://github.com/peanutbutterchicken/anoboard/.github/screenshots/boardpage.png)
+![image](https://github.com/peanutbutterchicken/anoboard/.github/screenshots/rulepage.png)
 
 ## Features
 *   **100% Anonymous Posting:** Users can share their thoughts without creating an account or leaving identifiable footprints.
