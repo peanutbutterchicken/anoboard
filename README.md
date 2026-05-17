@@ -15,7 +15,7 @@ AnoBoard is a simple digital corkboard for the unspoken. Where you can share you
 
 ## Tech Stack
 - **Frontend**: HTML5, CSS3, Javascript
-- **Backend**: PHP 8.5
+- **Backend**: PHP 8.3.6
 - **Database**: MySQL, Apache
 - **UI/UX Design**: Figma
 
