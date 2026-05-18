@@ -89,7 +89,9 @@ formContainer.addEventListener('click', async function(event){
 
 async function postNote(event){
     const textarea = document.getElementById('form__text-body');
-    const inputText = textarea.value.trim(' ');
+    const inputText = textarea.value.trim('');
+    textarea.setHTML(inputText);
+
     const name = generateRandomName();
 
     if(!inputText || !selectedNoteColor) return;
