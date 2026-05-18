@@ -11,7 +11,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
 
-    (isset($data['text']) && isset($data['note_color'])) ? 
-    $noteModel->createNote($data) : exit;
-
+    if (isset($data['text']) && isset($data['note_color'])) {
+        // Sanitize inputs to prevent Cross-Site Scripting (XSS)
+        $cleanText = htmlspecialchars(trim($data['text']), ENT_QUOTES, 'UTF-8');
+        $cleanColor = htmlspecialchars(trim($data['note_color']), ENT_QUOTES, 'UTF-8');
+        
+        // Enforce a maximum length and prevent empty notes
+        if (!empty($cleanText) && strlen($cleanText) <= 1000) {
+            $data['text'] = $cleanText;
+            $data['note_color'] = $cleanColor;
+            // Override frontend timestamp with the server's exact current time
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $noteModel->createNote($data);
+        }
+    }
 } 

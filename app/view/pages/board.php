@@ -3,6 +3,9 @@
     <a href="index.php?page=board&action=showModal" class="floating-button">
         <span class="material-symbols-outlined icon-add">add</span>
     </a>
+    <div id="refresh-spinner" class="refresh-spinner" style="display: none;">
+        Refreshing...
+    </div>
     <div class="overlay" style="display: none;">
         <form class="container" style="display: none;">
             <div class="form__header">

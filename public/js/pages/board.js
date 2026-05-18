@@ -2,7 +2,7 @@ import renderNote from '../components/note.js';
 import generateRandomName from '../helper/helperNameGenerator.js';
 import getDateNow from '../helper/helperGetFormmatedDateTime.js'
 import getHexColor from '../helper/helperGetNoteColorHex.js'
-import { postNoteService } from './../services/api.js';
+import { postNoteService, getNotesService } from './../services/api.js';
 
 
 let state = {
@@ -17,6 +17,11 @@ const isPageBoard = urlParams.get('page') === 'board';
  // show modal normally with page load. since it came from an anchor element.
 if(showModal){
     openModal();
+    
+    // Remove the 'action' parameter from the URL address bar without reloading
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete('action');
+    window.history.replaceState({}, document.title, cleanUrl);
 }
 
 const btnPostNote = document.querySelector('.button__post-note');
@@ -61,6 +66,35 @@ function render(){
 
 render();
 
+// Auto-refresh functionality
+async function refreshBoard() {
+    // Prevent disruption: Skip refresh if the user is reading (scrolled down) or typing a note
+    const isModalOpen = document.querySelector('.overlay').style.display === 'flex';
+    const isScrolled = window.scrollY > 50;
+    
+    if (isModalOpen || isScrolled) {
+        return;
+    }
+
+    const spinner = document.getElementById('refresh-spinner');
+    spinner.style.display = 'block';
+
+    const newNotes = await getNotesService();
+    if (newNotes) {
+        // Only re-render the DOM if the notes have actually changed
+        const hasChanges = JSON.stringify(newNotes) !== JSON.stringify(state.notes);
+        
+        if (hasChanges) {
+            state.notes = newNotes;
+            render();
+        }
+    }
+
+    // Hide spinner after a tiny delay so it doesn't just flash instantly
+    setTimeout(() => { spinner.style.display = 'none'; }, 300);
+}
+setInterval(refreshBoard, 15000); // Refreshes every 15 seconds
+
 const formContainer = document.querySelector('.container');
 const textArea = document.querySelector('.form__text-body');
 // color selection
@@ -78,9 +112,9 @@ formContainer.addEventListener('click', async function(event){
 
     if(event.target.classList.contains('button__form-submit')){
         if(!textArea.value){
-            alert("Input text");
+            showToast("Input text", true);
         } else if(!selectedNoteColor){
-            alert("Please select a note color");
+            showToast("Please select a note color", true);
         } else {
             await postNote(event);
         }
@@ -90,7 +124,6 @@ formContainer.addEventListener('click', async function(event){
 async function postNote(event){
     const textarea = document.getElementById('form__text-body');
     const inputText = textarea.value.trim('');
-    textarea.setHTML(inputText);
 
     const name = generateRandomName();
 
@@ -103,11 +136,12 @@ async function postNote(event){
         note_color: selectedNoteColor
     };
     
-    const success = await postNoteService(data);
-    if(!success){
-        alert('Failed to create note');
+    const result = await postNoteService(data);
+    if(!result.success){
+        showToast(`Failed to create note: ${result.message}`, true);
         return;
     }
+    showToast("Note posted successfully!");
     state.notes.push(data);
     // clear input values after successful post
     textarea.value = '';
@@ -117,13 +151,33 @@ async function postNote(event){
 }
 
 function openModal(){
-   document.querySelector('.overlay').style.display = 'flex'
-   document.querySelector('.container').style.display = 'flex';
+   const overlay = document.querySelector('.overlay');
+   const container = document.querySelector('.container');
+   
+   overlay.style.display = 'flex';
+   container.style.display = 'flex';
+
+   overlay.animate([ { opacity: 0 }, { opacity: 1 } ], { duration: 250, fill: 'forwards' });
+   container.animate([
+       { opacity: 0, transform: 'scale(0.95)' },
+       { opacity: 1, transform: 'scale(1)' }
+   ], { duration: 250, easing: 'ease-out', fill: 'forwards' });
 }
 
 function closeModal(){
-   document.querySelector('.overlay').style.display = 'none'
-   document.querySelector('.container').style.display = 'none'
+   const overlay = document.querySelector('.overlay');
+   const container = document.querySelector('.container');
+
+   const overlayAnim = overlay.animate([ { opacity: 1 }, { opacity: 0 } ], { duration: 200, fill: 'forwards' });
+   container.animate([
+       { opacity: 1, transform: 'scale(1)' },
+       { opacity: 0, transform: 'scale(0.95)' }
+   ], { duration: 200, easing: 'ease-in', fill: 'forwards' });
+
+   overlayAnim.onfinish = () => {
+       overlay.style.display = 'none';
+       container.style.display = 'none';
+   };
 }
 
 function getStrSelectedColor(event){
@@ -131,4 +185,27 @@ function getStrSelectedColor(event){
     event.target.classList.add('selected');
     const color = document.querySelector('.color.selected').getAttribute('data-color');
     return color;
+}
+
+function showToast(message, isError = false) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '20px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = isError ? '#D32F2F' : '#4CAF50';
+    toast.style.color = 'white';
+    toast.style.padding = '12px 24px';
+    toast.style.borderRadius = '8px';
+    toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    toast.style.zIndex = '9999';
+    toast.style.transition = 'opacity 0.3s ease-in-out';
+    toast.style.opacity = '1';
+    
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }

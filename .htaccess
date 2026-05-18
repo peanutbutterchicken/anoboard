@@ -1,0 +1,9 @@
+# Disable directory browsing
+Options -Indexes
+
+# Block direct web access to sensitive directories and files
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Returns a 404 Not Found if anyone tries to access these via the browser
+    RewriteRule ^(app|config|\.git|\.gitginore|TODO\.md|README\.md)(/|$) - [R=404,L]
+</IfModule>

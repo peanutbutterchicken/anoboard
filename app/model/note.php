@@ -23,8 +23,10 @@ class Note{
                 $stmt->bindParam('note_color', $note['note_color']);
                 $stmt->execute();
             $this->db->commit();
+            return true;
         } catch (PDOException $e){
             $this->db->rollBack();
+            throw new Exception("Create Note Failed", 0, $e);
         }
     }
 
@@ -32,12 +34,14 @@ class Note{
         try {
             $this->db->beginTransaction();
                 $stmt = $this->db->prepare('DELETE 1 WHERE id = :noteId FROM note');
+                $stmt = $this->db->prepare('DELETE FROM note WHERE id = :noteId');
                 $stmt->bindParam('noteId', $noteId);
                 $stmt->execute();
             $this->db->commit();    
+            return true;
         } catch(PDOException $e){
             $this->db->rollBack();
-            echo "Delete Note Failed";
+            throw new Exception("Delete Note Failed", 0, $e);
         }
     }
 } 

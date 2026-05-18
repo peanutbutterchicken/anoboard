@@ -7,3 +7,25 @@ body {
 .body__board, .body__rules{
     background-color: #FFFFFF;
 }
+
+.body__board {
+    background-color: #f5f5f5;
+    background-image: radial-gradient(#111 1px, transparent 1px);
+    background-size: 14px 14px;
+}
+
+/* spinner */
+.refresh-spinner {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    z-index: 1000;
+    font-size: 13px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}

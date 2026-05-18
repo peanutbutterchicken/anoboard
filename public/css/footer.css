@@ -8,9 +8,10 @@ footer {
     color: #2C2E3399;
 }
 
-.container__links {
-
+.body__board footer {
+    background-color:  #FFFFFF;
 }
+
 .container__links a{
     margin: 0 14px;
     text-decoration: none;
