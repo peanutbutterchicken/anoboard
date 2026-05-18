@@ -9,7 +9,7 @@
                 <h1>Post Note</h1>
                 <span class="form__button-close">X</span>
             </div>
-            <textarea class="form__text-body" id="form__text-body" placeholder="What's on your mind?"></textarea>
+            <textarea class="form__text-body" id="form__text-body" placeholder="What's on your mind?" maxlength="200"></textarea>
             <p class="form__color-header">SELECT NOTE COLOR</p>
             <div class="form__color-selection">
                 <div class="color yellow" data-color="yellow"></div>

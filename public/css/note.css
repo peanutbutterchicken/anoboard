@@ -27,7 +27,7 @@
 .note .text{
     font-style: italic;
     font-size: 18px;
-
+    overflow-wrap: break-word; 
     color: #2C2E33CC;
 }
 
@@ -132,9 +132,11 @@
     height: 32px;
     width: 32px;
     border-radius: 10px;
-    
+}
+.body__board .color {
     cursor: pointer;
 }
+
 .color.selected {
     border: 2px solid rgb(30, 30, 43);
 }
