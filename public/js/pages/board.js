@@ -127,16 +127,28 @@ async function postNote(event){
 
     const name = generateRandomName();
 
+    const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+
     if(!inputText || !selectedNoteColor) return;
+    if(!turnstileToken) {
+        showToast("Please complete the CAPTCHA.", true);
+        return;
+    }
 
     let data = {
         text: inputText,
         created_at: getDateNow(),
         anonymous_uname: name,
-        note_color: selectedNoteColor
+        note_color: selectedNoteColor,
+        cf_turnstile_response: turnstileToken
     };
     
     const result = await postNoteService(data);
+
+    // Reset Turnstile and disable the button so the user can post again without reloading
+    if (window.turnstile) window.turnstile.reset();
+    document.getElementById("submit-btn").disabled = true;
+
     if(!result.success){
         showToast(`Failed to create note: ${result.message}`, true);
         return;
@@ -208,4 +220,17 @@ function showToast(message, isError = false) {
         toast.style.opacity = '0';
         setTimeout(() => toast.remove(), 300);
     }, 3000);
+}
+
+// Attach Turnstile callbacks to the global window object so the HTML widget can find them
+window.onTurnstileSuccess = function(token) {
+    document.getElementById("submit-btn").disabled = false;
+}
+window.onTurnstileError = function(errorCode) {
+    console.error("Turnstile error:", errorCode);
+    document.getElementById("submit-btn").disabled = true;
+}
+window.onTurnstileExpired = function() {
+    console.warn("Turnstile token expired");
+    document.getElementById("submit-btn").disabled = true;
 }

@@ -22,7 +22,16 @@
                 <div class="color purple" data-color="purple" ></div>
             </div>
             <div class="form__footer">
-                <button type="submit" class="button__form-submit">Post Anonymously</button>
+                  <div
+                    class="cf-turnstile"
+                    data-sitekey="0x4AAAAAADRy9CJH-BkiIZ6R"
+                    data-theme="light"
+                    data-size="flexible"
+                    data-callback="onTurnstileSuccess"
+                    data-error-callback="onTurnstileError"
+                    data-expired-callback="onTurnstileExpired"
+                ></div>
+                <button type="submit" class="button__form-submit" id="submit-btn" disabled>Post Anonymously</button>
                 <p>Notes stay on the wall for 7 days unless pinned.</p>
             </div>
         </form>

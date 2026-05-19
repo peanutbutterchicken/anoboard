@@ -5,5 +5,5 @@ Options -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
     # Returns a 404 Not Found if anyone tries to access these via the browser
-    RewriteRule ^(app|config|\.git|\.gitginore|TODO\.md|README\.md)(/|$) - [R=404,L]
+    RewriteRule ^(app|config|\.git|\.gitignore|\.env|TODO\.md|README\.md)(/|$) - [R=404,L]
 </IfModule>

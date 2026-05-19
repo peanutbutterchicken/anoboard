@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <?php
         if($currentPage === 'board'){
+                echo "<link rel='preconnect' href='https://challenges.cloudflare.com'/>";
+                echo "<script src='https://challenges.cloudflare.com/turnstile/v0/api.js' async defer></script>";
                 echo "<script type='module' src='./js/pages/board.js'></script>";
             } else {
                 echo "";
