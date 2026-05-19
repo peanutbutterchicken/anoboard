@@ -10,9 +10,9 @@ class Database {
         try {
             $this->connection = new PDO($dsn, $config['username'], $config['password'], [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                // Always return database rows as associative arrays
+                // always return database rows as associative arrays
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                // Disable emulation to ensure true prepared statements (Security!)
+                // disable emulation to ensure true prepared statements (Security!)
                 PDO::ATTR_EMULATE_PREPARES => false           
             ]);
         } catch (PDOException $ex) {

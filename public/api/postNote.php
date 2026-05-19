@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
 
-    // 1. Verify Cloudflare Turnstile CAPTCHA
+    // verify Cloudflare Turnstile CAPTCHA
     if (empty($data['cf_turnstile_response'])) {
         http_response_code(403);
         header('Content-Type: application/json');
@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
 
-    // Use cURL for external requests, as allow_url_fopen might be disabled in production
+    // use cURL for external requests, as allow_url_fopen might be disabled in production
     $ch = curl_init('https://challenges.cloudflare.com/turnstile/v0/siteverify');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     curl_close($ch);
 
     $captchaResult = json_decode($verifyResponse);
-    // Check for cURL errors or failed validation
+    // check for cURL errors or failed validation
     if ($verifyResponse === false || !$captchaResult || empty($captchaResult->success)) {
         http_response_code(403);
         header('Content-Type: application/json');
@@ -50,15 +50,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 
     if (isset($data['text']) && isset($data['note_color'])) {
-        // Sanitize inputs to prevent Cross-Site Scripting (XSS)
+        // sanitize inputs to prevent Cross-Site Scripting (XSS)
         $cleanText = htmlspecialchars(trim($data['text']), ENT_QUOTES, 'UTF-8');
         $cleanColor = htmlspecialchars(trim($data['note_color']), ENT_QUOTES, 'UTF-8');
         
-        // Enforce a maximum length and prevent empty notes
+        // enforce a maximum length and prevent empty notes
         if (!empty($cleanText) && strlen($cleanText) <= 1000) {
             $data['text'] = $cleanText;
             $data['note_color'] = $cleanColor;
-            // Override frontend timestamp with the server's exact current time
+            // override frontend timestamp with the server's exact current time
             $data['created_at'] = date('Y-m-d H:i:s');
             $noteModel->createNote($data);
         }

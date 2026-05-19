@@ -12,11 +12,13 @@ AnoBoard is a simple digital corkboard for the unspoken. Where you can share you
 *   **Digital Corkboard Interface:** A simple, intuitive, and visually appealing layout for reading messages.
 *   **Instant Expression:** Seamlessly write and post daily thoughts, secrets, or dreams in real-time.
 *   **Safe Space:** Designed to foster a judgment-free environment for unspoken words.
+*   **Spam Protection:** Integrated Cloudflare Turnstile ensures a bot-free wall without compromising user privacy.
 
 ## Tech Stack
 - **Frontend**: HTML5, CSS3, Javascript
 - **Backend**: PHP 8.3.6
 - **Database**: MySQL, Apache
+- **Security**: Cloudflare Turnstile
 - **UI/UX Design**: Figma
 
 
@@ -60,4 +62,3 @@ Contributions, issues, and feature requests are welcome!
 
 ## License
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE for more information.
-

@@ -7,11 +7,11 @@ class EnvLoader {
         }
         $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ($lines as $line) {
-            if (strpos(trim($line), '#') === 0) continue; // Skip comment lines
+            if (strpos(trim($line), '#') === 0) continue; // skip comment lines
             if (strpos($line, '=') !== false) {
                 list($name, $value) = explode('=', $line, 2);
                 $name = trim($name);
-                $value = trim($value, " \t\n\r\0\x0B\"'"); // Strip whitespace and quotes
+                $value = trim($value, " \t\n\r\0\x0B\"'"); // strip whitespace and quotes
                 $_ENV[$name] = $value;
             }
         }

@@ -66,9 +66,9 @@ function render(){
 
 render();
 
-// Auto-refresh functionality
+// auto-refresh functionality
 async function refreshBoard() {
-    // Prevent disruption: Skip refresh if the user is reading (scrolled down) or typing a note
+    // prevent disruption: Skip refresh if the user is reading (scrolled down) or typing a note
     const isModalOpen = document.querySelector('.overlay').style.display === 'flex';
     const isScrolled = window.scrollY > 50;
     
@@ -90,7 +90,7 @@ async function refreshBoard() {
         }
     }
 
-    // Hide spinner after a tiny delay so it doesn't just flash instantly
+    // hide spinner after a tiny delay so it doesn't just flash instantly
     setTimeout(() => { spinner.style.display = 'none'; }, 300);
 }
 setInterval(refreshBoard, 15000); // Refreshes every 15 seconds
@@ -145,7 +145,7 @@ async function postNote(event){
     
     const result = await postNoteService(data);
 
-    // Reset Turnstile and disable the button so the user can post again without reloading
+    // reset Turnstile and disable the button so the user can post again without reloading
     if (window.turnstile) window.turnstile.reset();
     document.getElementById("submit-btn").disabled = true;
 
@@ -222,7 +222,7 @@ function showToast(message, isError = false) {
     }, 3000);
 }
 
-// Attach Turnstile callbacks to the global window object so the HTML widget can find them
+// attach Turnstile callbacks to the global window object so the HTML widget can find them
 window.onTurnstileSuccess = function(token) {
     document.getElementById("submit-btn").disabled = false;
 }
