@@ -8,7 +8,7 @@ AnoBoard is a simple digital corkboard for the unspoken. Where you can share you
 ![rule-page](.github/screenshots/rulepage.png)
 
 ## Features
-*   **100% Anonymous Posting:** Users can share their thoughts without creating an account or leaving identifiable footprints.
+*   **100% Anonymous Posting:** Users can share their thoughts without creating an account or leaving identifiable footprints. We strictly enforce zero-ip tracking policy by encrypting user IPs and user agents using salted SHA256 hashes. Your identity never touches our database.
 *   **Digital Corkboard Interface:** A simple, intuitive, and visually appealing layout for reading messages.
 *   **Instant Expression:** Seamlessly write and post daily thoughts, secrets, or dreams in real-time.
 *   **Safe Space:** Designed to foster a judgment-free environment for unspoken words.
