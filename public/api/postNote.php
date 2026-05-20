@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../../app/core/bootstrap.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $rateLimiter->limit(3, 60, 'post_note');
     $jsonPayload = file_get_contents('php://input'); // get data from http header
     $data = json_decode($jsonPayload, true); // convert json into an associative array
     if(!is_array($data)){

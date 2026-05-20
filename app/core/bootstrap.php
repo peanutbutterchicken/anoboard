@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/errorHandler.php';
-require_once __DIR__ . '/EnvLoader.php';
+require_once __DIR__ . '/envLoader.php';
 require_once __DIR__ . '/database.php';
+require_once __DIR__ . '/rateLimiter.php';
 require_once __DIR__ . '/../model/note.php';
 
 set_error_handler(['errorHandler', 'handleError']);
@@ -12,4 +13,7 @@ EnvLoader::load(__DIR__ . '/../../.env');
 
 $database = new Database();
 $pdo = $database->getConnection();
+$rateLimiter = new RateLimiter($pdo);
+$rateLimiter->limit();
 $noteModel = new Note($pdo);
+
