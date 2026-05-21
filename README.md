@@ -42,9 +42,14 @@ AnoBoard is a simple digital corkboard for the unspoken. Where you can share you
     *   Open your web browser and go to http://localhost/phpmyadmin/.
     *   Create a new database named db_anoboard
     *   Navigate to the Import tab.
-    *   Upload the database.sql file provided in the repository to set up the necessary tables.
+    *   Upload the `database/schema.sql` file provided in the repository to set up the necessary tables.
 
-4. **Run the Application:**
+4. **Configure the Environment:**
+    *   Rename `.env.example` to `.env` and provide your Cloudflare Turnstile keys and a random rate-limit salt.
+    *   Create a `config/` directory in the root folder.
+    *   Move and rename `config.database_config.example.php` to `config/database_config.php` and update it with your local MySQL credentials.
+
+5. **Run the Application:**
     *   Open your web browser and navigate to http://localhost/anoboard (make sure the folder name matches your directory in htdocs).
 ## Contributing
 
