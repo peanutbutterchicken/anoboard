@@ -32,7 +32,8 @@ AnoBoard is a simple digital corkboard for the unspoken. Where you can share you
     *   Navigate to your XAMPP `htdocs` folder (usually `C:\xampp\htdocs` on Windows).
     *   Clone the repository inside `htdocs`:
         ```bash
-        git clone [https://github.com/peanutbutterchicken/anoboard.git](https://github.com/peanutbutterchicken/anoboard.git)
+        git clone https://github.com/peanutbutterchicken/anoboard.git
+        ```
 
 2. **Start the Local Server:**
     *   Open the XAMPP Control Panel.
