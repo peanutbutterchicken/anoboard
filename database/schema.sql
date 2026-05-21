@@ -48,13 +48,6 @@ CREATE TABLE `rate_limit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `rate_limit`
---
-
-INSERT INTO `rate_limit` (`hashed_ip`, `hits`, `time_expiry`) VALUES
-('e6f6fc8fdf41d7019b104dda51f027a58a9a663fa9223c09510ce78ee91a7139', 5, 1779372438);
-
---
 -- Indexes for dumped tables
 --
 
