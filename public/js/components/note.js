@@ -1,7 +1,13 @@
 import getHexColor from '../helper/helperGetNoteColorHex.js';
 
 function getTimeElapsed(timestamp){
-    const timeDiff = Date.now() - new Date(timestamp).getTime();
+    const now = Temporal.Now.instant();    
+    // format sql datetime string 'YYYY-MM-DD HH:MM:SS' to ISO 8601 'YYYY-MM-DDTHH:MM:SSZ'
+    // 'Z' or zulu time tells temporal this is a utc timestamp
+    const isoString = timestamp.replace(' ', 'T') + 'Z';
+    // parse the timestamp as an absolute point in time
+    const noteTime = Temporal.Instant.from(isoString);
+    const timeDiff = now.epochMilliseconds - noteTime.epochMilliseconds;
     const seconds = timeDiff / 1000;
     const minutes = seconds / 60;
     const hours = Math.floor(minutes / 60);

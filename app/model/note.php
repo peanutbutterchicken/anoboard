@@ -2,7 +2,6 @@
 
 class Note{
     private $db;
-
     function __construct(PDO $pdo){
        $this->db = $pdo;
     }
@@ -33,7 +32,6 @@ class Note{
     public function deleteNote($noteId){
         try {
             $this->db->beginTransaction();
-                $stmt = $this->db->prepare('DELETE 1 WHERE id = :noteId FROM note');
                 $stmt = $this->db->prepare('DELETE FROM note WHERE id = :noteId');
                 $stmt->bindParam('noteId', $noteId);
                 $stmt->execute();

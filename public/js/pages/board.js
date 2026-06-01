@@ -1,6 +1,5 @@
 import renderNote from '../components/note.js';
 import generateRandomName from '../helper/helperNameGenerator.js';
-import getDateNow from '../helper/helperGetFormmatedDateTime.js'
 import getHexColor from '../helper/helperGetNoteColorHex.js'
 import { postNoteService, getNotesService } from './../services/api.js';
 
@@ -137,10 +136,11 @@ async function postNote(event){
 
     let data = {
         text: inputText,
-        created_at: getDateNow(),
         anonymous_uname: name,
         note_color: selectedNoteColor,
-        cf_turnstile_response: turnstileToken
+        cf_turnstile_response: turnstileToken,
+        // temporary utc datetime, this is overwritten by backend
+        created_at: new Date().toISOString().slice(0, 19).replace('T', ' ')
     };
     
     const result = await postNoteService(data);

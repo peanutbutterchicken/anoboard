@@ -59,8 +59,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if (!empty($cleanText) && strlen($cleanText) <= 1000) {
             $data['text'] = $cleanText;
             $data['note_color'] = $cleanColor;
-            // override frontend timestamp with the server's exact current time
-            $data['created_at'] = date('Y-m-d H:i:s');
+            // gmdate for greenwich mean time
+            $data['created_at'] = gmdate('Y-m-d H:i:s');
             $noteModel->createNote($data);
         }
     }
