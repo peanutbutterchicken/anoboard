@@ -1,0 +1,28 @@
+name: deploy website on push
+on:
+  push:
+    branches:
+      - staging
+jobs:
+  web-deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: get latest code
+        uses: actions/checkout@v6
+
+      - name: sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOSTNAME }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp 
+          port: 21
+          server-dir: /staging-anoboard.rf.gd/htdocs/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            README.md
+            config.database_config.example.php
+            .env.example
