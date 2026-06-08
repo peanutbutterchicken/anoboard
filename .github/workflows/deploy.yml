@@ -25,4 +25,4 @@ jobs:
             **/.git*/**
             README.md
             config.database_config.example.php
-          env.example
+            .env.example
